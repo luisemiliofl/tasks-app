@@ -1,0 +1,20 @@
+<mat-accordion>
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>{{ title }}</mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-selection-list *ngIf="taskList && taskList.length > 0">
+      <mat-list-item *ngFor="let task of taskList">
+        <h3 mat-line>{{ task.description }}</h3>
+        <mat-checkbox
+          [(ngModel)]="task.status"
+          (ngModelChange)="onCheckValueChange(task)"
+        ></mat-checkbox>
+        <button mat-icon-button (click)="taskActionEvent(task)">
+          <mat-icon class="mat-24" color="primary">{{ icon }}</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-selection-list>
+    <p *ngIf="taskList && taskList.length <= 0">{{ emptyStateMessagge }}</p>
+  </mat-expansion-panel>
+</mat-accordion>

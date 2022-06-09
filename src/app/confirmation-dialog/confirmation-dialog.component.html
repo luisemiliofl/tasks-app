@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>{{ title || "Confirmation" }}</h1>
+<div mat-dialog-content>
+  {{ description || "Are you sure you want to continue with the operation" }}
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="false">
+    {{ koText || "Cancel" }}
+  </button>
+  <button
+    mat-raised-button
+    color="accent"
+    [mat-dialog-close]="true"
+    cdkFocusInitial
+  >
+    {{ okText || "Ok" }}
+  </button>
+</div>
